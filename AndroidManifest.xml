@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.byd.clusternav.diagnostic" android:versionCode="2980" android:versionName="2.9.8">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="29"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <application android:label="仪表导航助手" android:icon="@mipmap/ic_launcher" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:allowBackup="false" android:usesCleartextTraffic="true">
+        <activity android:name="com.byd.clusternav.ui.MainActivity" android:exported="true" android:launchMode="singleTop" android:configChanges="orientation|screenSize|uiMode">
+            <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+        </activity>
+        <activity android:name="com.byd.clusternav.ui.PatternActivity" android:exported="true" android:taskAffinity="com.byd.clusternav.diagnostic.pattern" android:excludeFromRecents="true" android:resizeableActivity="true"/>
+        <service android:name="com.byd.clusternav.core.SessionService" android:exported="false"/>
+        <service android:name="com.byd.clusternav.core.BootStartupService" android:exported="false"/>
+        <service android:name="com.byd.clusternav.core.AutoSetupAccessibilityService"
+                 android:label="@string/auto_setup_service_label"
+                 android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+                 android:enabled="true"
+                 android:exported="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice"
+                       android:resource="@xml/auto_setup_service_config"/>
+        </service>
+        <receiver android:name="com.byd.clusternav.core.BootReceiver" android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

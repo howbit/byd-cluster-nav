@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">仪表导航助手</string>
+    <string name="auto_setup_service_label">仪表导航自启动配置服务</string>
+</resources>

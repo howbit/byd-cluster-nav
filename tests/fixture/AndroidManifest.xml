@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.byd.automap" android:versionCode="1" android:versionName="EMULATOR-ONLY">
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="29"/>
+  <application android:label="模拟高德，仅本地测试" android:debuggable="true" android:theme="@android:style/Theme.Material.Light.NoActionBar">
+    <activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+    <activity android:name=".extra.MeterActivity" android:exported="true" android:resizeableActivity="true" android:taskAffinity="com.byd.automap.meter"/>
+    <service android:name=".service.PushService" android:exported="false"/>
+  </application>
+</manifest>

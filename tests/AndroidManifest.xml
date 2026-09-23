@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.byd.clusternav.tests">
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="29"/>
+  <application android:label="ClusterNav tests"/>
+  <instrumentation android:name="com.byd.clusternav.tests.AndroidChecks" android:targetPackage="com.byd.clusternav.diagnostic"/>
+  <instrumentation android:name="com.byd.clusternav.tests.BootChecks" android:targetPackage="com.byd.clusternav.diagnostic"/>
+</manifest>
